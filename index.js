@@ -58,8 +58,7 @@ try {
   const timezone = core.getInput('timezone');
 
   console.log(`Publish on ${timezone}`);
-  const run = await publishDir('./articles', {timezone});
-  run();
+  publishDir('./articles', {timezone});
 } catch (error) {
   core.setFailed(error.message);
 }
