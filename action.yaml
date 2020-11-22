@@ -1,0 +1,10 @@
+name: 'zenn.dev auto publish action'
+description: 'Make the "published" property "true" in the articles which have the past "publishAt" property'
+inputs:
+  timezone:
+    description: 'The time zone to be applied to the date of the article with no time zone specified'
+    required: false
+    default: 'Asia/Tokyo'
+runs:
+  using: 'node12'
+  main: 'index.js'
