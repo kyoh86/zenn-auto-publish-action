@@ -20,6 +20,7 @@ async function publishDir(dirpath, options) {
   const dir = await fs.opendir(dirpath);
   const now = moment();
   let published = false;
+  console.debug(now);
   console.debug(options.timezone);
   for await (const dirent of dir) {
     const filepath = path.join(dirpath, dirent.name);
@@ -43,7 +44,7 @@ async function publishDir(dirpath, options) {
     }
     const publishAt = moment.tz(data.publishAt, options.timezone);
     if (now.isBefore(publishAt)) {
-      console.debug(`found unpublished article: ${dirent.name}`);
+      console.debug(`found reserved article: ${dirent.name} (at ${publishAt})`);
       continue
     }
     console.info(`publish ${dirent.name} (at ${publishAt})`);
