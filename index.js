@@ -12,7 +12,7 @@ const schema = {
     type:      { type: 'string',  required: true, enum: ['tech', 'idea'] },
     topics:    { type: 'array',   required: true },
     published: { type: 'boolean', required: true },
-    publishAt: { type: 'any' }
+    publishAt: { type: 'string' }
   }
 };
 
