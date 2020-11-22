@@ -19,6 +19,7 @@ const schema = {
 async function publishDir(dirpath, options) {
   const dir = await fs.opendir(dirpath);
   const now = moment();
+  let published = false;
   console.debug(options.timezone);
   for await (const dirent of dir) {
     const filepath = path.join(dirpath, dirent.name);
@@ -48,8 +49,11 @@ async function publishDir(dirpath, options) {
     console.info(`publish ${dirent.name} (at ${publishAt})`);
     data.published = true;
     delete data.publishAt;
-
+    published = true
     await fs.writeFile(filepath, frontmatter.stringify(content, data), 'utf8')
+  }
+  if (published) {
+    core.setOutput("published", "true");
   }
 }
 

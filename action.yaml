@@ -5,6 +5,9 @@ inputs:
     description: 'The time zone to be applied to the date of the article with no time zone specified'
     required: false
     default: 'Asia/Tokyo'
+outputs:
+  published:
+    description: 'There are new published articles'
 runs:
   using: 'node12'
   main: 'index.js'
