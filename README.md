@@ -28,7 +28,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout source
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
       - name: Publish articles
         id: publish
         uses: kyoh86/zenn-auto-publish-action@v0.0.2
